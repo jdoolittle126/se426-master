@@ -1,0 +1,48 @@
+<!-- Jonathan Doolittle -->
+<contacts>
+	<version>
+		<date>10072021</date>
+		<semantic>0.9</semantic>
+	</version>
+	
+	<contact gender="M">
+		<first>Jonathan</first>
+		<last>Doolittle</last>
+		<phone>1112223333</phone>
+		<fax>1112223333</fax>
+		<email>jjdoolittle@email.neit.edu</email>
+	</contact>
+	
+	<contact gender="M">
+		<first>Joe</first>
+		<last>Smith</last>
+		<phone>1112223333</phone>
+		<fax>1112223333</fax>
+		<email>jsmith@email.neit.edu</email>
+	</contact>
+	
+	<contact gender="F">
+		<first>Sam</first>
+		<last>Smith</last>
+		<phone>1112223333</phone>
+		<fax>1112223333</fax>
+		<email>ssmith@email.neit.edu</email>
+	</contact>
+
+	<contact gender="F">
+		<first>May</first>
+		<last>Smith</last>
+		<phone>1112223333</phone>
+		<fax>1112223333</fax>
+		<email>msmith@email.neit.edu</email>
+	</contact>
+	
+	<contact gender="M">
+		<first>John</first>
+		<last>Doe</last>
+		<phone>1112223333</phone>
+		<fax>1112223333</fax>
+		<email>kdoe@email.neit.edu</email>
+	</contact>
+
+</contacts>
