@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="w2_group_activity_1.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="w2_group_activity_1_CalculatorWebService_Calculator" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.dneonline.com/calculator.asmx</Value>
+    </Setting>
+    <Setting Name="w2_group_activity_1_PhoneWebService_PhoneVerify" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ws.cdyne.com/phoneverify/phoneverify.asmx</Value>
+    </Setting>
+    <Setting Name="w2_group_activity_1_AddressWebService_AddressLookup" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ws.cdyne.com/psaddress/addresslookup.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
