@@ -1,3 +1,3 @@
 # Week 2
 
-In this assignment, we used wsdl web services to make calculations, lookup phone numbers, and find the potential zipcodes in a given area.
+In this assignment, we used wsdl web services to make calculations, lookup phone numbers, and find the potential zipcodes in a given area. Includes group activity and both in-class assignments.
