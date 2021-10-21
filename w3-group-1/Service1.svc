@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="w3_group_1.ContactManager" CodeBehind="Service1.svc.cs" %>

@@ -13,35 +13,29 @@ namespace w3_group_1
     public interface IContactManager
     {
 
-        [OperationContract]
-        string GetNumberOfContacts();
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        ContactInformation GetContactInformation(string lastName);
 
-        // TODO: Add your service operations here
+        [OperationContract]
+        int GetNumberOfContacts();
+
     }
 
-
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class ContactInformation
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
+        public string firstName { get; set; }
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public string lastName { get; set; }
+        [DataMember]
+        public string phoneNumber { get; set; }
+        [DataMember]
+        public string faxNumber { get; set; }
+        [DataMember]
+        public string emailAddress { get; set; }
+
     }
+
 }

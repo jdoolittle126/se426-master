@@ -12,22 +12,23 @@ namespace w3_group_1
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class ContactManager : IContactManager
     {
-        public string GetData(int value)
+
+        public ContactInformation GetContactInformation(string lastName)
         {
-            return string.Format("You entered: {0}", value);
+            return new ContactInformation()
+            {
+                firstName = "Jonathan",
+                lastName = "Doolittle",
+                emailAddress = "jjdoolittle@email.neit.edu",
+                faxNumber = "1234561234",
+                phoneNumber = "1234561234"
+            };
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public int GetNumberOfContacts()
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            return 5;
         }
+
     }
 }
