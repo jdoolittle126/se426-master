@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "w3-lab-3", "w3-lab-3\w3-lab-3.csproj", "{C3EF2B5E-1E6D-497E-84A0-864F7C1E9963}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "w3-lab-3-client", "w3-lab-3-client\w3-lab-3-client.csproj", "{F4497EAA-37A5-4207-B14A-960D699648F0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C3EF2B5E-1E6D-497E-84A0-864F7C1E9963} = {C3EF2B5E-1E6D-497E-84A0-864F7C1E9963}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{C3EF2B5E-1E6D-497E-84A0-864F7C1E9963}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3EF2B5E-1E6D-497E-84A0-864F7C1E9963}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3EF2B5E-1E6D-497E-84A0-864F7C1E9963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4497EAA-37A5-4207-B14A-960D699648F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4497EAA-37A5-4207-B14A-960D699648F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4497EAA-37A5-4207-B14A-960D699648F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4497EAA-37A5-4207-B14A-960D699648F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

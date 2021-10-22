@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -16,23 +17,32 @@ namespace w3_lab_3
 
         private readonly XPathNavigator _orderNavigator;
 
+
         private OrderService()
         {
             _orderNavigator = LoadInvoiceXml().CreateNavigator();
         }
 
+
+        /// <returns>The total number of orders in the XML file</returns>
         public int GetNumberOfOrders()
         {
             return _orderNavigator.Evaluate($"count(//Order)") is double total ? (int) total : 0;
         }
 
+
+        /// <param name="orderId">The ID of the order</param>
+        /// <returns>The total cost of the given order</returns>
         public double GetTotalCostForAnOrder(int orderId)
         {
             return _orderNavigator.Evaluate($"sum({SelectOrderQuery(orderId)}//TotalCost)") is double total ? total : 0.0;
         }
 
+        /// <param name="orderId">The ID of the order</param>
+        /// <returns>A list of OrderItem contained in the given order</returns>
         public List<OrderItem> GetItemListForOrder(int orderId)
         {
+
             var itemList = new List<OrderItem>();
             try
             {
@@ -40,17 +50,17 @@ namespace w3_lab_3
                 while (itemIterator.MoveNext())
                 {
                     var node = itemIterator.Current;
-                    //TODO
-                    var testing = node?.Evaluate("string(Name)");
 
                     var orderItem = new OrderItem
                     {
-                        Description = node?.Evaluate("string(Name)") as string,
+                        // The * 1 forces the eval to try and evaluate as a number
+                        Description = node?.Evaluate("string(Description)") as string,
                         PartNo = node?.Evaluate("string(PartNo)") as string,
-                        UnitPrice = node?.Evaluate("string(UnitPrice)") is double price ? price : 0,
-                        Quantity = node?.Evaluate("string(Quantity)") is int quantity ? quantity : 0,
+                        UnitPrice = node?.Evaluate("UnitPrice/text()*1") is double price ? price : 0,
+                        TotalCost = node?.Evaluate("TotalCost/text()*1") is double cost ? cost : 0,
+                        Quantity = node?.Evaluate("Quantity/text()*1") is double quantity ? (int)quantity : 0,
                         Options = new CustomerOptions()
-                        {
+                        { 
                             Size = node?.Evaluate("string(CustomerOptions/Size)") as string,
                             Color = node?.Evaluate("string(CustomerOptions/Color)") as string
                         }
@@ -59,7 +69,7 @@ namespace w3_lab_3
                     itemList.Add(orderItem);
                 }
             }
-            catch(Exception _)
+            catch
             {
                 // ignored
             }
@@ -68,16 +78,17 @@ namespace w3_lab_3
 
         }
 
+        /// <param name="partNo">The case-sensitive part number</param>
+        /// <returns>The total quantity of this part purchased in all orders</returns>
         public int HowManyOrderedForAPartNo(string partNo)
         {
-            if(_orderNavigator.Evaluate($"count(//Item/PartNo[text() = '{partNo}'])") is double count)
-            {
-                return (int) count;
-            }
-
-            return -1;
+            return _orderNavigator?.Evaluate($"sum(//Item[PartNo[text() = '{partNo}']]/Quantity)") is double count
+                ? (int)count : 0;
         }
 
+        /// <param name="orderId">The ID of the order</param>
+        /// <returns>An OrderAddress object will the billing address of the given order. If the order cannot be found
+        /// an empty object is returned.</returns>
         public OrderAddress GetBillingAddressForAnOrder(int orderId)
         {
             return AsOrderAddress(orderId, "BillingInformation");
@@ -87,15 +98,15 @@ namespace w3_lab_3
         /// Returns the query as an OrderAddress object, if it is valid. Returns a
         /// blank OrderAddress is the query cannot be evaluated.
         /// </summary>
-        /// <param name="orderId"></param>
-        /// <param name="query">The XPath query to evaluate</param>
+        /// <param name="orderId">The ID of the order</param>
+        /// <param name="query">The XPath or single node name (i.e. BillingAddress, etc.)</param>
         /// <returns></returns>
-        public OrderAddress AsOrderAddress(int orderId, string query)
+        private OrderAddress AsOrderAddress(int orderId, string query)
         {
             var orderAddress = new OrderAddress();
             try
             {
-                var addressSelect = _orderNavigator.SelectSingleNode(SelectOrderQuery(orderId)).SelectSingleNode(query);
+                var addressSelect = _orderNavigator.SelectSingleNode(SelectOrderQuery(orderId))?.SelectSingleNode(query);
 
                 orderAddress.Name = addressSelect?.Evaluate("string(Name)") as string;
                 orderAddress.Address = addressSelect?.Evaluate("string(Address)") as string;
@@ -116,7 +127,7 @@ namespace w3_lab_3
         /// </summary>
         /// <param name="orderId">The ID of the order to select</param>
         /// <returns>The query for the specified order</returns>
-        private string SelectOrderQuery(int orderId)
+        private static string SelectOrderQuery(int orderId)
         {
             return $"//Order[@id = '{orderId}']";
         }
@@ -127,8 +138,8 @@ namespace w3_lab_3
         /// <returns>An XPathDocument from the order XML file</returns>
         private static XPathDocument LoadInvoiceXml()
         {
-            var directory = HttpContext.Current.Server.MapPath(".");
-            var strFilename = directory + "\\" + "OrderInfoLab3.xml";
+            string directory = HttpContext.Current.Server.MapPath(".");
+            string strFilename = directory + "\\" + "OrderInfoLab3.xml";
             return new XPathDocument(strFilename);
         }
     }
