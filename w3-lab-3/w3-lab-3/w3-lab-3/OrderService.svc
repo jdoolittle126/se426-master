@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="w3_lab_3.OrderService" CodeBehind="OrderService.svc.cs" %>
