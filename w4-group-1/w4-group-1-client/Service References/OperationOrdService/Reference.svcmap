@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="92ee3660-143a-4a0a-842e-af5970b6bd76" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:57247/OperationOrder.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OperationOrder.xsd" MetadataType="Schema" ID="53fc2526-237a-4b44-8f91-49b4e0c7a208" SourceId="1" SourceUrl="http://localhost:57247/OperationOrder.svc?xsd=xsd1" />
+    <MetadataFile FileName="OperationOrder.disco" MetadataType="Disco" ID="7de37c34-5d3f-46e0-85d7-ece7958dd3bf" SourceId="1" SourceUrl="http://localhost:57247/OperationOrder.svc?disco" />
+    <MetadataFile FileName="OperationOrder1.xsd" MetadataType="Schema" ID="6c8f24c7-5a5a-41cc-a9c0-bd1d39f16b24" SourceId="1" SourceUrl="http://localhost:57247/OperationOrder.svc?xsd=xsd0" />
+    <MetadataFile FileName="OperationOrderService.wsdl" MetadataType="Wsdl" ID="edb049d9-b6fe-4174-9747-e9035ca308e4" SourceId="1" SourceUrl="http://localhost:57247/OperationOrder.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
