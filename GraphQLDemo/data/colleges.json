@@ -1,0 +1,15 @@
+[
+   {
+      "id": "col-101",
+      "name": "Texas A&M",
+      "location": "College Station, TX",
+      "rating":5.0
+   },
+   
+   {
+      "id": "col-102",
+      "name": "NEIT",
+      "location": "East Greenwich, RI",
+      "rating":4.5
+   }
+]

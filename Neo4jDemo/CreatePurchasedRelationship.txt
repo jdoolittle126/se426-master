@@ -1,0 +1,19 @@
+MATCH (p:Person), (o:Order)
+WHERE p.Name= 'Michael Smith' and o.OrderID = 1
+CREATE (p)-[:Purchased]->(o)
+RETURN p,o
+
+MATCH (p:Person), (o:Order)
+WHERE p.Name= 'Robyn Hood' and o.OrderID = 2
+CREATE (p)-[:Purchased]->(o)
+RETURN p,o
+
+MATCH (p:Person), (o:Order)
+WHERE p.Name= 'John Doe' and o.OrderID = 3
+CREATE (p)-[:Purchased]->(o)
+RETURN p,o
+
+MATCH (p:Person), (o:Order)
+WHERE p.Name= 'Maid Marion' and o.OrderID = 4
+CREATE (p)-[:Purchased]->(o)
+RETURN p,o

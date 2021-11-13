@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified">
+      <s:element name="GetFootballTeam">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFootballTeamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetFootballTeamResult" type="FootballTeam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FootballTeam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TeamName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Division" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="roster" type="ArrayOfPlayer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPlayer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Player" type="Player" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Player">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="weight" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="position" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FootballTeam" type="FootballTeam" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetFootballTeamSoapIn">
+    <wsdl:part name="parameters" element="GetFootballTeam" />
+  </wsdl:message>
+  <wsdl:message name="GetFootballTeamSoapOut">
+    <wsdl:part name="parameters" element="GetFootballTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFootballTeamHttpGetIn" />
+  <wsdl:message name="GetFootballTeamHttpGetOut">
+    <wsdl:part name="Body" element="FootballTeam" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="string" />
+  </wsdl:message>
+  <wsdl:message name="GetFootballTeamHttpPostIn" />
+  <wsdl:message name="GetFootballTeamHttpPostOut">
+    <wsdl:part name="Body" element="FootballTeam" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="string" />
+  </wsdl:message>
+  <wsdl:portType name="FootballServiceSoap">
+    <wsdl:operation name="GetFootballTeam">
+      <wsdl:input message="GetFootballTeamSoapIn" />
+      <wsdl:output message="GetFootballTeamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="HelloWorldSoapIn" />
+      <wsdl:output message="HelloWorldSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="FootballServiceHttpGet">
+    <wsdl:operation name="GetFootballTeam">
+      <wsdl:input message="GetFootballTeamHttpGetIn" />
+      <wsdl:output message="GetFootballTeamHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="HelloWorldHttpGetIn" />
+      <wsdl:output message="HelloWorldHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="FootballServiceHttpPost">
+    <wsdl:operation name="GetFootballTeam">
+      <wsdl:input message="GetFootballTeamHttpPostIn" />
+      <wsdl:output message="GetFootballTeamHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="HelloWorldHttpPostIn" />
+      <wsdl:output message="HelloWorldHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FootballServiceSoap" type="FootballServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFootballTeam">
+      <soap:operation soapAction="/GetFootballTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FootballServiceSoap12" type="FootballServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFootballTeam">
+      <soap12:operation soapAction="/GetFootballTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FootballServiceHttpGet" type="FootballServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetFootballTeam">
+      <http:operation location="/GetFootballTeam" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FootballServiceHttpPost" type="FootballServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetFootballTeam">
+      <http:operation location="/GetFootballTeam" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FootballService">
+    <wsdl:port name="FootballServiceSoap" binding="FootballServiceSoap">
+      <soap:address location="http://52.152.227.167/footballwebservice/footballservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FootballServiceSoap12" binding="FootballServiceSoap12">
+      <soap12:address location="http://52.152.227.167/footballwebservice/footballservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FootballServiceHttpGet" binding="FootballServiceHttpGet">
+      <http:address location="http://52.152.227.167/footballwebservice/footballservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FootballServiceHttpPost" binding="FootballServiceHttpPost">
+      <http:address location="http://52.152.227.167/footballwebservice/footballservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,4 @@
+MATCH p=()-[r:Purchased]->() RETURN p LIMIT 25
+
+MATCH (a)-[Purchased]->(o)-[Contains]->(i)
+Return i

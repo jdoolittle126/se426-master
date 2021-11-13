@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "name": "t-shirt",
+    "sku": "111",
+    "price": "10.05",
+    "color": "green",
+    "size": "small"
+  },
+  {
+    "id": "2",
+    "name": "t-shirt",
+    "sku": "112",
+    "price": "10.05",
+    "color": "blue",
+    "size": "medium"
+  },
+  {
+    "id": "3",
+    "name": "shoes",
+    "sku": "112",
+    "price": "12.05",
+    "color": "black",
+    "size": "large"
+  },
+  {
+    "id": "SJdcR92wt",
+    "name": "BruceTest",
+    "sku": "BruceSku",
+    "price": 100,
+    "color": "green",
+    "size": "xLarge"
+  }
+]

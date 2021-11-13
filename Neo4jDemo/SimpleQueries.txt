@@ -1,0 +1,7 @@
+MATCH (p:Person)
+WHERE p.Name = 'Robyn Hood'
+RETURN p
+
+MATCH (i:Item)
+WHERE i.Name = 't-shirt'
+RETURN i

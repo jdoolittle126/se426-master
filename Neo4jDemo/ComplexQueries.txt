@@ -1,0 +1,19 @@
+Price for order 2
+MATCH (o:Order), (i:Item)
+where o.OrderID = 2
+return o.OrderID,sum(i.Price)
+
+Pull orders by male
+MATCH (p)-[Purchased]->(o)
+where p.Sex='M'
+Return o,p.Name
+
+Pull items by female
+MATCH (p)-[Purchased]->(o)-[Contains]->(i)
+where p.Sex='F'
+Return i,p.Name
+
+Pull orders by age
+MATCH (p)-[Purchased]->(o)
+where p.Age>40
+Return o,p.Name
