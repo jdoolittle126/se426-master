@@ -1,0 +1,5 @@
+CREATE
+(p:Person {Name: 'Michael Smith', Age:40,Sex:'M',EyeColor:'Blue',Education:'High School'}),
+(:Person {Name: 'Robyn Hood', Age:30,Sex:'M',EyeColor:'Green',Education:'College'}),
+(:Person {Name: 'John Doe', Age:27,Sex:'M',EyeColor:'Blue',Education:'College'}),
+(:Person {Name: 'Maid Marion', Age:50,Sex:'F',EyeColor:'Brown',Education:'Masters'})

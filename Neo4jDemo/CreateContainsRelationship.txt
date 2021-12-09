@@ -1,0 +1,41 @@
+MATCH (o:Order), (i:Item)
+Where o.OrderID = 1 and (i.SKU='3333S' )
+CREATE (o)-[rel:Contains]->(i)
+SET rel.qty = 3
+
+MATCH (o:Order), (i:Item)
+Where o.OrderID = 1 and (i.SKU='5555S' )
+CREATE (o)-[rel:Contains]->(i)
+SET rel.qty = 1
+
+
+MATCH (o:Order), (i:Item)
+Where o.OrderID = 2 and (i.SKU='3333S' )
+CREATE (o)-[rel:Contains]->(i)
+SET rel.qty = 2
+
+MATCH (o:Order), (i:Item)
+Where o.OrderID = 2 and (i.SKU='444' )
+CREATE (o)-[rel:Contains]->(i)
+SET rel.qty = 1
+
+
+MATCH (o:Order), (i:Item)
+Where o.OrderID = 3 and (i.SKU='6666L' )
+CREATE (o)-[rel:Contains]->(i)
+SET rel.qty = 2
+
+MATCH (o:Order), (i:Item)
+Where o.OrderID = 3 and (i.SKU='5555L' )
+CREATE (o)-[rel:Contains]->(i)
+SET rel.qty = 1
+
+MATCH (o:Order), (i:Item)
+Where o.OrderID = 4 and (i.SKU='3333S' )
+CREATE (o)-[rel:Contains]->(i)
+SET rel.qty = 2
+
+MATCH (o:Order), (i:Item)
+Where o.OrderID = 4 and (i.SKU='444' )
+CREATE (o)-[rel:Contains]->(i)
+SET rel.qty = 1

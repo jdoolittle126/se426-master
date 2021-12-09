@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="w5_midterm_part_2.NeitStoreOrdersService" CodeBehind="NeitStoreOrdersService.svc.cs" %>

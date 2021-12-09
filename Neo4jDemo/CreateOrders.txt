@@ -1,0 +1,5 @@
+CREATE
+(o:Order {OrderID: 1, DateOrdered:'6/1/19'}),
+(:Order {OrderID: 2, Total:5.05, DateOrdered:'7/1/20'}),
+(:Order {OrderID: 3, Total:15.05,DateOrdered:'4/1/20'}),
+(:Order {OrderID: 4, Total:25.05,DateOrdered:'4/6/20'})

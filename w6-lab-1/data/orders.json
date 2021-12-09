@@ -1,0 +1,36 @@
+[
+{
+	"id": "1",
+    "dateOrdered": "7/7/2021",
+	"items":[{"id":"1","name":"t-shirt","sku":"SKU111",
+		"price":"10.05","color":"green","size":"small"},
+		{"id":"2","name":"shorts","sku":"SKU112",
+		"price":"12.00","color":"black","size":"medium"}
+		]
+			
+},	
+{
+	"id": "2",
+    "dateOrdered": "1/7/2021",
+		"items":[{"id":"3","name":"t-shirt","sku":"SKU113",
+		"price":"10.05","color":"green","size":"small"},
+		{"id":"4","name":"jacket","sku":"SKU114",
+		"price":"52.00","color":"white","size":"medium"}
+		]
+
+	
+
+},	
+{
+	"id": "3",
+    "dateOrdered": "9/21/2021",
+		"items":[{"id":"1","name":"t-shirt","sku":"SKU111",
+		"price":"10.05","color":"white","size":"x-large"},
+		{"id":"2","name":"hat","sku":"SKU115",
+		"price":"12.00","color":"blue","size":"small"}
+		]
+
+	
+
+}	
+]

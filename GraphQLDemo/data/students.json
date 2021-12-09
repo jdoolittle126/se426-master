@@ -1,0 +1,32 @@
+[
+  {
+    "id": "S1001",
+    "firstName": "Mickey",
+    "lastName": "Mouse",
+    "email": "mickeymouse@disney.com",
+    "password": "pass123",
+    "collegeId": "col-102"
+  },
+  {
+    "id": "S1002",
+    "email": "johndoe@test.com",
+    "firstName": "John",
+    "lastName": "Doe",
+    "password": "pass123",
+    "collegeId": "col-101"
+  },
+  {
+    "id": "S1003",
+    "email": "bart@springfield.com",
+    "firstName": "Bart",
+    "lastName": "Simpson",
+    "password": "pass123",
+    "collegeId": "col-101"
+  },
+  {
+    "id": "Bk0iRO2Dt",
+    "collegeId": "col-2",
+    "firstName": "Tim",
+    "lastName": "George"
+  }
+]

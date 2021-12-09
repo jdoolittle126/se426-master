@@ -1,0 +1,25 @@
+type Query {
+   items: [Item]
+   orders: [Order]
+   orderById(id:ID!):Order
+   itemById(id:ID!):Item
+}
+
+type Item {
+   id: ID!
+   name: String
+   sku: String
+   price: Float
+   color: String
+   size: String
+}
+
+type Order {
+   id: ID!
+   dateOrdered: String
+   items: [Item]
+}
+
+type Mutation {
+   createItem(name:String, sku:String, price:Float, color:String, size:String):String
+}

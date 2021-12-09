@@ -1,0 +1,7 @@
+CREATE
+(i:Item {Name: 't-shirt', SKU:'3333S',Price:6.05, Color:'white',Size:'small'}),
+(:Item {Name: 't-shirt', SKU:'3333M',Price:6.05, Color:'white',Size:'medium'}),
+(:Item {Name: 'hat', SKU:'444',Price:2.05, Color:'red',Size:'medium'}),
+(:Item {Name: 'jacket', SKU:'5555L',Price:11.0, Color:'black',Size:'large'}),
+(:Item {Name: 'jacket', SKU:'5555S',Price:10.0, Color:'black',Size:'small'}),
+(:Item {Name: 'pants', SKU:'6666L',Price:0.49, Color:'blue',Size:'large'})
