@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Week 6 Lab</title>
+</head>
+<body>
+
+<div class="columns m-3">
+    <div class="column m-1">
+        <div class="container">
+            <h1 class="title is-1">Part 1</h1>
+
+            <div class="field">
+                <label class="label">Enter a Postal Code</label>
+                <div class="control is-grouped">
+                    <input id="textPostalCode" class="input" type="text" placeholder="02864">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button id="buttonSubmitPart1" class="button is-link">Submit</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container content">
+            <ul id="postalResultsList">
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="column m-1">
+        <h1 class="title is-1">Part 2</h1>
+
+        <div class="field">
+            <div class="control">
+                <button id="buttonSubmitPart2" class="button is-link">Get Top Stories</button>
+            </div>
+        </div>
+
+        <div class="container content">
+            <ol id="topStoriesList">
+
+            </ol>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+<script src="./bundle.js"></script>
+</html>

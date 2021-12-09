@@ -1,0 +1,23 @@
+﻿@model JsonServerSideExamples.Models.GeoPlugin
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <Table>
+        <tr>
+            <td>Latitude</td>
+            <td>@Model.geoplugin_latitude</td>
+
+        </tr>
+        <tr>
+            <td>
+                Longitude
+            </td>
+            <td>
+                @Model.geoplugin_longitude
+            </td>
+        </tr>
+    </Table>
+
+</div>

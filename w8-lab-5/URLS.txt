@@ -1,0 +1,5 @@
+https://localhost:44354/api/Orders/GetNumberOfOrders
+https://localhost:44354/api/Orders/GetTotalCostForAnOrder/2
+https://localhost:44354/api/Orders/GetItemListForOrder/1
+https://localhost:44354/api/Orders/HowManyOrderedForAPartNo/JETSWEATER
+https://localhost:44354/api/address/GetBillingAddressForAnOrder/2

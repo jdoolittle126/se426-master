@@ -1,0 +1,47 @@
+﻿@model w8_in_class_1.Models.WeatherModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+    <div class="container">
+        <h1 class="h1">Part 1</h1>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+    <div class="form-group">
+        <label for="textParameter">Parameter</label>
+        <input type="text" value="@Model.Parameter" />
+    </div>
+
+            <div class="form-group">
+                <label for="textUnit">Unit</label>
+                <input type="text" value="@Model.Unit" />
+            </div>
+
+            <div class="form-group">
+                <label for="textValue">Value</label>
+                <input type="text" value="@Model.Value" />
+            </div>
+
+            <div class="form-group">
+                <label for="textLocalDate">Local Date</label>
+                <input type="text" value="@Model.LocalDate"/>
+            </div>
+
+            <div class="form-group">
+                <label for="textLocation">Location</label>
+                @Html.TextBoxFor(w => w.Location)
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+
+        }
+
+    </div>
+
+
+</div>
