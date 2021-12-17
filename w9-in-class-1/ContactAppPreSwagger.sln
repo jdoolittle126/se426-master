@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactAppPreSwagger", "ContactAppPreSwagger\ContactAppPreSwagger.csproj", "{B9CBD434-78C6-400F-99D3-176D6FDBE3FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9CBD434-78C6-400F-99D3-176D6FDBE3FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9CBD434-78C6-400F-99D3-176D6FDBE3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9CBD434-78C6-400F-99D3-176D6FDBE3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9CBD434-78C6-400F-99D3-176D6FDBE3FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2601245-151F-49F8-84C0-3747D1B113AC}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Final</title>
+</head>
+<body>
+
+<div class="columns m-3">
+    <div class="column m-1">
+
+        <div class="field">
+            <div class="control">
+                <button id="buttonSubmit" class="button is-link">Get Bank Data</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1 id="regionName"></h1>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <td>Owner</td>
+                    <td>Account Id</td>
+                    <td>Total Amount</td>
+                </tr>
+                </thead>
+                <tbody id="regionResults">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script>
+
+    // Cache Selectors
+    const regionName = $("#regionName");
+    const regionResults = $("#regionResults");
+    const buttonSubmit = $("#buttonSubmit");
+
+
+    /**
+     * Makes an async request to the given URL with the given callback
+     * @param url The URL of the webservice
+     * @param callback The callback function, with one parameter for the xmlHttpRequest
+     */
+    const makeJsonRequest = (url, callback) => {
+        let xmlHttpRequest;
+
+        if (window.XMLHttpRequest) {
+            xmlHttpRequest = new XMLHttpRequest();
+            if (typeof xmlHttpRequest.overrideMimeType != "undefined") {
+                xmlHttpRequest.overrideMimeType("text/xml");
+            }
+        } else if (window.ActiveXObject) {
+            xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+        } else {
+            // Error
+            return;
+        }
+
+        xmlHttpRequest.open("GET", url, true);
+        xmlHttpRequest.onreadystatechange = () => {
+            callback(xmlHttpRequest);
+        };
+        xmlHttpRequest.send(null);
+    };
+
+    // Part 1 Function
+    const getTeamData = () => {
+
+        regionResults.html("");
+        const url = "http://52.152.227.167/JSONbankservice/BankAccounts/GetBankInformation";
+
+        makeJsonRequest(url, (xmlHttpRequest) => {
+            if (xmlHttpRequest.readyState === 4 && xmlHttpRequest.status === 200) {
+
+                let results = JSON.parse(xmlHttpRequest.responseText);
+
+                if(results == null) {
+                    $("<tr>" +
+                        "<td colspan='3'>" +
+                        "<p>No data!</p>" +
+                        "</td>" +
+                        "</tr>").appendTo(regionResults);
+                } else {
+                    let totalCost = 0;
+
+                    for(let i = 0; i < results.accounts.length; i++) {
+                        totalCost += results.accounts[i].Amount;
+
+                    }
+
+                    $("<tr>" +
+                        "<td>" +
+                        "<p>" + results.OwnerName + "</p>" +
+                        "</td>" +
+                        "<td>" +
+                        "<p>" + results.AccountID + "</p>" +
+                        "</td>" +
+                        "<td>" +
+                        "<p>$" + totalCost + "</p>" +
+                        "</td>" +
+                        "</tr>").appendTo(regionResults);
+
+                }
+
+            } else {
+                // waiting for the call to complete
+            }
+        });
+    };
+
+
+    buttonSubmit.on("click", function() {
+        getTeamData();
+    });
+
+
+</script>
+</html>
